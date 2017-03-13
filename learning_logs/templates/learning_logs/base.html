@@ -1,0 +1,80 @@
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico"> -->
+    
+    <style>
+      body{   
+        padding-top:50px; 
+      }
+      /* uncomment the following if view acts buggy on small devices */
+      /*@media(max-width: 768px){
+        body{ margin-top: 0px;    
+          } 
+        }*/
+    </style>
+
+    <title>Learning Logs</title>
+
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'learning_logs:index' %}">LEARNING LOGS</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'learning_logs:about' %}">About</a></li>
+            <li><a href="{% url 'learning_logs:topics' %}">Topics</a></li>
+            <li><a href="{% url 'learning_logs:md_cheatsheet' %}">Markdown Cheatsheet</a></li>
+          </ul>
+          {% if user.is_authenticated %}
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a>Hello, {{ user.username }}!</a></li>
+              <li><a href="{% url 'users:logout' %}">log out</a></li>
+            </ul>
+          {% else %}
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="{% url 'users:register' %}">register</a></li>
+              <li><a href="{% url 'users:login' %}">log in</a></li>
+            </ul>
+          {% endif %}
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+    <div class="container">
+      
+      <div class="page-header">
+        {% block header %}{% endblock header %}
+      </div>
+
+      <div>
+        {% block content %}{% endblock content %}
+      </div>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>

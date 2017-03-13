@@ -1,0 +1,12 @@
+{% extends 'learning_logs/base.html' %}
+{% load markdown_deux_tags%}
+
+{% block header %}
+      <h1>Log your learnings ... using Markdown!</h1>
+{% endblock header %}
+
+{% block content %}
+  
+  {% markdown_cheatsheet %}
+
+{% endblock content %}

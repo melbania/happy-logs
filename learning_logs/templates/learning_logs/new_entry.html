@@ -1,0 +1,34 @@
+{% extends "learning_logs/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+  <h2><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></h2>
+{% endblock header %}
+
+{% block content %}
+
+  <p><a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">Markdown syntax</a> allowed. Raw HTML tags function (sort of) in the preview, but are ignored on save and appear as plain text on topic page.</p>
+
+  {{ form.media }}
+
+  <form action="{% url 'learning_logs:new_entry' topic.id %}" method='post' class="form-group">
+    {% csrf_token %}
+    <style>
+      .wmd-panel {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 0;
+        min-width: 100%;
+      }
+    </style>
+  
+    {{ form }}
+  
+    {% buttons %}
+      <button name="submit" class="btn btn-primary">save entry</button>
+      <a href="{% url 'learning_logs:topic' topic.id %}" class="btn btn-danger">cancel</a>
+    {% endbuttons %}
+  </form>
+
+{% endblock content %}

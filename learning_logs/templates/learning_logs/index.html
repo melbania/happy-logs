@@ -1,0 +1,15 @@
+{% extends 'learning_logs/base.html' %}
+{% load static %}
+
+{% block header %}
+    <div class="jumbotron">
+      <h1>a Learning Log is a happy log</h1>
+    </div>
+{% endblock header %}
+
+{% block content %}
+  <div>
+    <img src="{% static '/images/happy_log.jpg' %}" class="img-responsive img-rounded" alt="Responsive image"/>
+  </div>
+
+{% endblock content %}

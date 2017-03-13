@@ -1,0 +1,81 @@
+{% extends 'learning_logs/base.html' %}
+{% load static %}
+
+{% block header %}
+    <h2>About Learning Logs</h2>
+{% endblock header %}
+
+{% block content %}
+
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Origins</h3>
+  </div>
+  <div class="panel-body">
+    <p>Learning Logs takes its name (and most of its structure and   functionality) from the web application tutorial found in Chapters 18 - 20   in the beginner's python programming book <a href="http://ehmatthes.github.io/pcc/"><strong>Python Crash Course</strong></a> by Eric Matthes.</p>
+  
+    <p>Some modifications have been made to the original design at the request   of potential users (me, my son, and the hubs):</p>
+    <ul>
+      <p>
+        <li>used a <a href="https://getbootstrap.com/components/#navbar-fixed-top"><b>fixed-top navbar</b></a> instead of a static-top navbar</li>
+      </p>
+  
+      <p>
+        <li>added some more <a href="http://getbootstrap.com/css/#buttons"><strong>bootstrap3 buttons</strong></a></li>
+      </p>
+
+      <p>
+        <li>added this "about" page with <a href="http://getbootstrap.com/components/#panels"><strong>panels</strong></a></li>
+      </p>
+  
+      <p>
+        <li>sorted user's topics alphabetically instead of by date added:   required learning more about <a href="https://docs.djangoproject.com/  en/1.10/ref/models/querysets/"><strong>Django's QuerySet API</strong></a>   and the <a href="https://docs.djangoproject.com/en/1.10/ref/models/querysets/#order-by"><b>ordered_by method</b></a></li>
+      </p>
+      <p>
+        <li>added the image of a happy log on the index page: original image   found on March 11, 2016 on <a href="http://kingofwallpapers.com/logs/  img-001.php?pic=/logs/logs-001.jpg">kingofwallpapers.com</a> via a   google search for images of logs; modified by me using Adobe Photoshop CS5.</li>
+      </p>
+  
+      <p>
+        <li>added timezone aware dates for entry views rendered client-side on the "topic" page: required some javascript code (suggested by the hubs) and installation of <a href="https://momentjs.com/"><strong>moment.js</strong></a> (an   amazing little package that I found which provides formatting options   for javascript date objects! ... required downloading and using   moment.min.js as a <a href="https://docs.djangoproject.com/en/1.10/howto/static-files/"><strong>static file</strong></a>)</li>
+      </p>
+  
+      <p>
+        <li>used a <a href="https://daringfireball.net/projects/markdown/syntax">  <strong>markdown</strong></a> editor/viewer for the "new entry", "edit   entry", and "topic" pages: required installation of the projects <a href=  "https://github.com/timmyomahony/django-pagedown"><strong>django-pagedown  </strong></a> (for the markdown editing) and <a href="https://github.com/  trentm/django-markdown-deux"><strong>django-markdown-deux</strong></a> (for viewing markdown entries ... and for safely escaping raw HTML)</li>
+      </p>
+   </ul>
+  </div>
+</div>
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">How to Use Learning Logs</h3>
+  </div>
+  <div class="panel-body">
+    <ol>
+    <p>
+      <li><a href="{% url 'users:register' %}"><b>Register</b></a> for your free account.</li>
+    </p>
+     <p>
+      <li>Go do some learning about <a href="http://www.macwright.org/2017/01/28/numbers.html"><b>something</b></a> ... ANYTHING!</li>
+    </p>
+    <p>
+      <li><a href="{% url 'users:login' %}"><b>Log in</b></a> to your Learning Logs account.</li>
+    </p>
+    <p>
+      <li>Add a topic.</li>
+    </p>
+    <p>
+      <li>Add an entry for that topic.</li>
+    </p>
+    <p>
+      <li>Edit that entry if necessary.</li>
+    </p>
+    <p>
+      <li>Dress that entry up with some <a href="{% url 'learning_logs:md_cheatsheet' %}"><b>Markdown</b></a> if you're feeling fancy.</li>
+    </p>
+</ol>
+  </div>
+</div>
+
+{% endblock content %}

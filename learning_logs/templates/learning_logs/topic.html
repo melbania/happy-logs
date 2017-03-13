@@ -1,0 +1,44 @@
+{% extends 'learning_logs/base.html' %}
+{% load static %}
+{% load markdown_deux_tags %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block header %}
+  <h2>{{ topic }}</h2>
+{% endblock header %}
+
+{% block content %}
+  <p>
+    <a href="{% url 'learning_logs:new_entry' topic.id %}" class="btn btn-primary">add an entry</a>  <a href="{% url 'learning_logs:topics' %}" class="btn btn-info">back to topics</a>
+  </p>
+
+  {% for entry in entries %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>
+          <span id="{{ entry.id }}">{{ entry.date_added|date:'c' }}</span>
+          <script src="{% static '/js/moment.min.js' %}"></script>
+          <script>
+            var entry_time = document.getElementById("{{ entry.id }}")
+            var js_date = new Date(Date.parse(entry_time.innerHTML))
+            // var day = local_time.getDay()
+            // var js_date = toJSDate(entry_time.innerHTML)
+            var formatted_dt = moment(js_date).format("ddd - D MMM YYYY - h:mm a")
+            document.getElementById("{{ entry.id }}").innerHTML = formatted_dt
+          </script>
+          <small>
+            <a href="{% url 'learning_logs:edit_entry' entry.id %}">edit entry</a>
+          </small>
+        </h3>
+      </div>
+  
+      <div class="panel-body">
+        {{ entry.entry|markdown }}
+      </div>
+    </div><!-- /panel -->
+  {% empty %}
+      omigob omigob omigob! You haven't told me ANYTHING about {{ topic }}, yet! Quick go add an entry before I die of curiosity.
+  {% endfor %}
+{% endblock content %}
