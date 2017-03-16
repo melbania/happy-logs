@@ -33,8 +33,19 @@ ALLOWED_HOSTS = local.allowed_hosts()
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
 DATABASES = local.databases(BASE_DIR)
+
+# Settings for Heroku
+if os.getcwd() == '/app':
+    import dj_database_url
+
+    DATABASES = {
+        'default': dj_database_url.config(default='postgres://localhost')
+    }
+
+    # Honor the 'X-Forwarded-Proto' header for request.is_secure().
+    # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 # -----------------------------------------------------------------#
 
@@ -138,19 +149,3 @@ LOGIN_URL = '/users/login/'
 BOOTSTRAP3 = {
     'include_jquery': True,
 }
-
-# Settings for Heroku
-# if os.getcwd() == '/app':
-#     import dj_database_url
-
-#     DATABASES = {
-#         'default': dj_database_url.config(default='postgres://localhost')
-#     }
-
-#     # Honor the 'X-Forwarded-Proto' header for request.is_secure().
-#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-#     # Allow all host headers
-#     ALLOWED_HOSTS = ['happy-logs.herokuapp.com']
-
-
