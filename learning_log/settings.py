@@ -15,42 +15,17 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# -- ENVIRONMENT SPECIFIC SETTINGS ------------------------------ #
-# -- DEVELOPMENT ON LOCALHOST REQUIRES SETTINGS IN LOCAL.PY FILE  #
-# -- HEROKU REQUIRES CONFIG VARS DEFINED IN APP ADMIN SETTINGS -- #
-# --------------------------------------------------------------- #
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
-try:
-    import local
-    # SECURITY WARNING: keep the secret key used in production secret!
-    SECRET_KEY = local.secret_key()
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
-    # SECURITY WARNING: don't run with debug turned on in production!
-    DEBUG = local.debug()
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.environ.get('DEBUG')
 
-    ALLOWED_HOSTS = local.allowed_hosts()
-
-    # Database
-    # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-    DATABASES = local.databases(BASE_DIR)
-except ModuleNotFoundError:
-    pass
-
-# Settings for Heroku
-# if os.getcwd() == '/app':
-#     import dj_database_url
-
-#     DATABASES = {
-#         'default': dj_database_url.config(default='postgres://localhost')
-#     }
-
-    # Honor the 'X-Forwarded-Proto' header for request.is_secure().
-    # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-
-# -----------------------------------------------------------------#
+ALLOWED_HOSTS = ['localhost', os.environ.get('ALLOWED_HOSTS')]
 
 # Application definition
 
@@ -102,6 +77,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'learning_log.wsgi.application'
 
+
+# Database
+# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
 
@@ -152,3 +139,25 @@ LOGIN_URL = '/users/login/'
 BOOTSTRAP3 = {
     'include_jquery': True,
 }
+
+# Settings for Heroku
+if os.getcwd() == '/app':
+    import dj_database_url
+
+    DATABASES = {
+        'default': dj_database_url.config(default='postgres://localhost')
+    }
+
+    # Honor the 'X-Forwarded-Proto' header for request.is_secure().
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    # Allow all host headers
+    # ALLOWED_HOSTS = ['happy-logs.herokuapp.com']
+
+    # Secure session and csrf cookies
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
+
+
+
+
