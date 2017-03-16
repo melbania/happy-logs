@@ -12,11 +12,6 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
-try:
-    import local
-except ModuleNotFoundError:
-    pass
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -27,17 +22,21 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = local.secret_key()
+try:
+    import local
+    # SECURITY WARNING: keep the secret key used in production secret!
+    SECRET_KEY = local.secret_key()
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = local.debug()
+    # SECURITY WARNING: don't run with debug turned on in production!
+    DEBUG = local.debug()
 
-ALLOWED_HOSTS = local.allowed_hosts()
+    ALLOWED_HOSTS = local.allowed_hosts()
 
-# Database
-# https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-DATABASES = local.databases(BASE_DIR)
+    # Database
+    # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
+    DATABASES = local.databases(BASE_DIR)
+except ModuleNotFoundError:
+    pass
 
 # Settings for Heroku
 # if os.getcwd() == '/app':
