@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,7 +24,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG')
+DEBUG = os.environ.get('DEBUG') == 'True'
+
+# Update database configuration with $DATABASE_URL.
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
+
 
 ALLOWED_HOSTS = ['localhost', os.environ.get('ALLOWED_HOSTS')]
 
@@ -154,7 +160,3 @@ if os.getcwd() == '/app':
     # Secure session and csrf cookies
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
-
-
-
-
