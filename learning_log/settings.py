@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '1kd%p_0^ong64%36%hji8)wot0)%l^ib%gy)b))vnf1t7-_cn%'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ['localhost']
 
@@ -142,20 +142,18 @@ BOOTSTRAP3 = {
 }
 
 # Settings for Heroku
-if os.getcwd() == '/app':
-    import dj_database_url
+# if os.getcwd() == '/app':
+#     import dj_database_url
 
-    DEBUG = False
+#     DATABASES = {
+#         'default': dj_database_url.config(default='postgres://localhost')
+#     }
 
-    DATABASES = {
-        'default': dj_database_url.config(default='postgres://localhost')
-    }
+#     # Honor the 'X-Forwarded-Proto' header for request.is_secure().
+#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-    # Honor the 'X-Forwarded-Proto' header for request.is_secure().
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-    # Allow all host headers
-    ALLOWED_HOSTS = ['*']
+#     # Allow all host headers
+#     ALLOWED_HOSTS = ['*']
 
 
 
