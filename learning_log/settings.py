@@ -142,18 +142,22 @@ BOOTSTRAP3 = {
 }
 
 # Settings for Heroku
-# if os.getcwd() == '/app':
+if os.getcwd() == '/app':
 #     import dj_database_url
 
 #     DATABASES = {
 #         'default': dj_database_url.config(default='postgres://localhost')
 #     }
 
-#     # Honor the 'X-Forwarded-Proto' header for request.is_secure().
-#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    # Honor the 'X-Forwarded-Proto' header for request.is_secure().
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-#     # Allow all host headers
-#     ALLOWED_HOSTS = ['*']
+    # Allow all host headers
+    ALLOWED_HOSTS = ['happy-logs.herokuapp.com']
+
+    # Secure session and csrf cookies
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
 
 
 
