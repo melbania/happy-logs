@@ -31,7 +31,7 @@ DEBUG = os.environ.get('DEBUG') == 'True'
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # # Secure session and csrf cookies
-# CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 SESSION_COOKIE_SECURE = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
