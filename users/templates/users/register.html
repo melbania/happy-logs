@@ -8,8 +8,9 @@
 {% block content %}
 
 <form method="post" action="{% url 'users:register' %}" class="form">
-  {% bootstrap_form form %}
   {% csrf_token %}
+
+  {% bootstrap_form form %}
 
   {% buttons %}
     <button name="submit" class="btn btn-primary">register</button>
