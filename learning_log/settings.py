@@ -28,7 +28,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG') == 'True'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure().
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Secure session and csrf cookies
+CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_SECURE = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 ALLOWED_HOSTS = ['localhost', os.environ.get('ALLOWED_HOSTS')]
 
@@ -155,9 +161,3 @@ LOGIN_URL = '/users/login/'
 BOOTSTRAP3 = {
     'include_jquery': True,
 }
-
-# Secure session and csrf cookies
-CSRF_COOKIE_SECURE = True
-
-SESSION_COOKIE_SECURE = True
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
