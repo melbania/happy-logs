@@ -12,8 +12,8 @@
 {% endif %}
 
 <form method="post" action="{% url 'users:login' %}" class="form">
-  {% csrf_token %}
   {% bootstrap_form form %}
+  {% csrf_token %}
 
   {% buttons %}
     <button name="submit" class="btn btn-primary">log in</button>
