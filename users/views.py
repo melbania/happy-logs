@@ -1,5 +1,4 @@
 # from django.views.decorators.csrf import csrf_protect
-from django.template import RequestContext
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -30,5 +29,5 @@ def register(request):
             login(request, authenticated_user)
             return HttpResponseRedirect(reverse('learning_logs:index'))
 
-    context = RequestContext(request, {'form':form})
+    context = {'form':form}
     return render(request, 'users/register.html', context)
