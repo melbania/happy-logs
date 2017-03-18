@@ -1,1 +1,17 @@
 {% extends 'learning_logs/base.html' %}
+
+{% block header %}
+    <h2>403 <small>FORBIDDEN REQUEST</small></h2>
+{% endblock header %}
+
+{% block content %}
+
+    <h3>CSRF verification failed. Request aborted.</h3>
+
+    <p>You are seeing this message because this site requires a CSRF cookie when submitting forms.</p>
+
+    <p>This cookie is required for security reasons, to ensure that your browser is not being hijacked by third parties.</p>
+    
+    <p>If you have configured your browser to disable cookies, please re-enable them, at least for this site, or for 'same-origin' requests.</p>
+
+{% endblock content %}
