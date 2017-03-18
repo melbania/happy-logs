@@ -1,3 +1,5 @@
+# from django.views.decorators.csrf import csrf_protect
+from django.template import RequestContext
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -10,6 +12,7 @@ def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('learning_logs:index'))
 
+# @csrf_protect
 def register(request):
     """Register a new user."""
     if request.method != 'POST':
@@ -27,5 +30,5 @@ def register(request):
             login(request, authenticated_user)
             return HttpResponseRedirect(reverse('learning_logs:index'))
 
-    context = {'form':form}
+    context = RequestContext(request, {'form':form})
     return render(request, 'users/register.html', context)
