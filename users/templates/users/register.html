@@ -2,21 +2,23 @@
 {% load bootstrap3 %}
 
 {% block header %}
-  <h2>Register an account and go learn something! Then come back here and write about it! So great!</h2>
+  <h1>Register an Account</h1>
 {% endblock header %}
 
 {% block content %}
 
-<form method="post" action="{% url 'users:register' %}" class="form">
-  {% csrf_token %}
-
-  {% bootstrap_form form %}
-
-  {% buttons %}
-    <button name="submit" class="btn btn-primary">register</button>
-  {% endbuttons %}
+  <h4>Go learn something! Then come back here and write about it! So great!</h4>
   
-  <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
-</form>
+  <form method="post" action="{% url 'users:register' %}" class="form">
+    {% csrf_token %}
+  
+    {% bootstrap_form form %}
+  
+    {% buttons %}
+      <button name="submit" class="btn btn-primary">register</button>
+    {% endbuttons %}
+    
+    <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
+  </form>
 
-{% endblock content %}
+{% endblock content %}ß

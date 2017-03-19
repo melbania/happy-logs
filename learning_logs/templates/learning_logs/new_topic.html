@@ -2,19 +2,21 @@
 {% load bootstrap3 %}
 
 {% block header %}
-  <h2>Add a new topic ... you Amazing Learning Machine, you!</h2>
+  <h1>Add a New Topic</h1>
 {% endblock header %}
 
 {% block content %}
 
-<form action="{% url 'learning_logs:new_topic' %}" method='post' class="form-group">
-  {% csrf_token %}
-  {% bootstrap_form form %}
-
-  {% buttons %}
-    <button name="submit" class="btn btn-primary">add topic</button>
-    <a href="{% url 'learning_logs:topics' %}" class="btn btn-danger">cancel</a>
-  {% endbuttons %}
-</form>
+  <h4>More learnings?! Yay!!</h4>
+  
+  <form action="{% url 'learning_logs:new_topic' %}" method='post' class="  form-group">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+  
+    {% buttons %}
+      <button name="submit" class="btn btn-primary">add topic</button>
+      <a href="{% url 'learning_logs:topics' %}" class="btn btn-danger">cancel</a  >
+    {% endbuttons %}
+  </form>
 
 {% endblock content %}

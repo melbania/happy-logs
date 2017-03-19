@@ -8,10 +8,8 @@
 {% endblock header %}
 
 {% block content %}
-  <!-- "add a topic" button -->
-  <p>
-    <a href="{% url 'learning_logs:new_topic' %}" class="btn btn-primary">add a topic</a>
-  </p>
+
+  <h4>"The cure for boredom is curiosity. There is no cure for curiosity." <small><i><a href="http://quoteinvestigator.com/2015/11/01/cure/"> -- Ellen Parr (Reader's Digest, 1980)</a></i></small></h4>
 
   <!-- show topics -->
   {% for topic in topics %}
@@ -19,5 +17,10 @@
   {% empty %}
     <p>No topics have been added yet. So much to learn! Where ya gonna start, you Avaricious Acquisitioner of Learnings, you?!</p>
   {% endfor %}
+  
+  <!-- "add a topic" button -->
+  <p>
+    <a href="{% url 'learning_logs:new_topic' %}" class="btn btn-primary">add a topic</a>
+  </p>
 
 {% endblock content %}

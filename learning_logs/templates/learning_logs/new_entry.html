@@ -2,12 +2,14 @@
 {% load bootstrap3 %}
 
 {% block header %}
-  <h2><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></h2>
+  <h1><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></h1>
 {% endblock header %}
 
 {% block content %}
 
-  <p><a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">Markdown syntax</a> allowed. Raw HTML tags function (sort of) in the preview, but are ignored on save and appear as plain text on topic page.</p>
+  <h4>Adding a New Entry?! Omigob, tell Learning Log EVERYTHING!!</h4>
+
+  <p><a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">Markdown syntax</a> allowed. Raw HTML tags function (sort of) in the preview, but are ignored on save and appear as plain text on {{ topic }}'s entries page.</p>
 
   {{ form.media }}
 
