@@ -36,9 +36,12 @@
   
       <div class="panel-body">
         {{ entry.entry|markdown }}
-      </div>
+      </div>     
     </div><!-- /panel -->
+    <p>
+      <a href="{% url 'learning_logs:new_entry' topic.id %}" class="btn btn-primary">add an entry</a>  <a href="{% url 'learning_logs:topics' %}" class="btn btn-info">back to topics</a>
+    </p> 
   {% empty %}
       omigob omigob omigob! You haven't told me ANYTHING about {{ topic }}, yet! Quick go add an entry before I die of curiosity.
-  {% endfor %}
+  {% endfor %}  
 {% endblock content %}

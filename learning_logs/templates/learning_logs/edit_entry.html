@@ -14,6 +14,12 @@
   
   <form action="{% url 'learning_logs:edit_entry' entry.id %}" method='post'   class="form-group">
     {% csrf_token %}
+    
+    {% buttons %}
+      <button name="submit" class="btn btn-primary">save changes</button>
+      <a href="{% url 'learning_logs:topic' topic.id %}" class="btn btn-danger">cancel</a>
+    {% endbuttons %}
+
     <style>
       .wmd-panel {
         margin-left: 0;
@@ -27,8 +33,8 @@
     {{ form }}
   
     {% buttons %}
-    <button name="submit" class="btn btn-primary">save changes</button>
-    <a href="{% url 'learning_logs:topic' topic.id %}" class="btn btn-danger">cancel</a>
+      <button name="submit" class="btn btn-primary">save changes</button>
+      <a href="{% url 'learning_logs:topic' topic.id %}" class="btn btn-danger">cancel</a>
     {% endbuttons %}
     
   </form>

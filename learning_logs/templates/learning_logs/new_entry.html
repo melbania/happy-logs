@@ -12,7 +12,14 @@
   {{ form.media }}
 
   <form action="{% url 'learning_logs:new_entry' topic.id %}" method='post' class="form-group">
+  
     {% csrf_token %}
+
+    {% buttons %}
+      <button name="submit" class="btn btn-primary">save entry</button>
+      <a href="{% url 'learning_logs:topic' topic.id %}" class="btn btn-danger">cancel</a>
+    {% endbuttons %}
+
     <style>
       .wmd-panel {
         margin-left: 0;
@@ -29,6 +36,7 @@
       <button name="submit" class="btn btn-primary">save entry</button>
       <a href="{% url 'learning_logs:topic' topic.id %}" class="btn btn-danger">cancel</a>
     {% endbuttons %}
+
   </form>
 
 {% endblock content %}

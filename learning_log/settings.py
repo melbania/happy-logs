@@ -148,16 +148,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # The following sets DEBUG == False (boolean False, not string 'False') if Debug != 'True'; since DEBUG == 'True' in local environment settings and 'False' in production settings, the following evaluates to True (boolean True, not string 'True') for development and False (boolean False, not string 'False') for production.
 DEBUG = os.environ.get('DEBUG') == 'True'
 
-# Honor the 'X-Forwarded-Proto' header for request.is_secure().
+# # Honor the 'X-Forwarded-Proto' header for request.is_secure().
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
-
-# Secure session and csrf cookies
-CSRF_COOKIE_SECURE = True
-# CSRF_TRUSTED_ORIGINS = ['localhost', os.environ.get('ALLOWED_HOSTS')]
-
-SESSION_COOKIE_SECURE = True
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 ALLOWED_HOSTS = ['localhost', os.environ.get('ALLOWED_HOSTS')]
 
