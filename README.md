@@ -37,7 +37,13 @@ A Python/Django application based on the web app project tutorial (Ch. 18-20) in
     $ python manage.py migrate
     ```
     
-- runserver to view the project in a web browser.
+- Collect static files.
+
+    ```
+    $ python manage.py collectstatic
+    ```
+    
+- `runserver` to view the project in a web browser.
     
     ```
     $ python manage.py runserver
