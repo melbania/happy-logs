@@ -13,13 +13,13 @@ A Python/Django application based on the web app project tutorial (Ch. 18-20) in
 - Create a virtual environment inside the happy-logs directory.
     
     ```
-    $ python -m venv *<virtual environment name>*
+    $ python -m venv <virtual environment name>
     ```
     
 - Activate the virtual environment.
     
     ```
-    $ source *<virtual environment name>*/bin/activate
+    $ source <virtual environment name>/bin/activate
     ```
     
 - Install the following packages in the active virtual environment:
