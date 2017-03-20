@@ -1,5 +1,5 @@
 # About happy-logs
-'happy-logs' is my project name for Learning Logs, a Python/Django web application that can be built using the tutorial found in Chapters 18 - 20 in the beginner's Python programming book [_Python Crash Course_](https://ehmatthes.github.io/pcc/index.html) by Eric Matthes. Users track what they've learned about whatever stuff and things they are studying in entries that are grouped by a user-defined topic.
+'happy-logs' is my project name for Learning Logs, a Python/Django web application that can be built using the tutorial found in Chapters 18 - 20 in the beginner's Python programming book [_Python Crash Course_](https://ehmatthes.github.io/pcc/index.html) by Eric Matthes. Users track what they've learned about whatever stuff and things they are studying in entries that are grouped by a user-defined topic. It's basically a blog with entries grouped by topic.
 
 Some modifications have been made to the original design at the request of potential users (me, my son, and the hubs):
 
