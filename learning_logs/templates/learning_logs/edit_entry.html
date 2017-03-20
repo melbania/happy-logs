@@ -7,37 +7,48 @@
 
 {% block content %}
 
-  <h4>You need to say whatever you said before, but better?! Wow! Edit that entry, you Marvelous Learning Maven, you!!</h4>
-   
-  <p><a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">Markdown syntax</a> allowed. Raw HTML tags function (sort of) in the preview, but are ignored on save and appear as plain text on {{ topic }}'s entries page.</p>
-  
-  {{ form.media }}
-  
-  <form action="{% url 'learning_logs:edit_entry' entry.id %}" method='post'   class="form-group">
-    {% csrf_token %}
-    
-    {% buttons %}
-      <button name="submit" class="btn btn-primary">save changes</button>
-      <a href="{% url 'learning_logs:topic' topic.id %}" class="btn btn-danger">cancel</a>
-    {% endbuttons %}
+  <div class="panel panel-default">
 
-    <style>
-      .wmd-panel {
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: 10px;
-        width: 0;
-        min-width: 100%;
-      }
-    </style>
+    <!-- PANEL HEADING -->
+    <div class="panel-heading">
+      <h3 class="panel-title">Edit Entry</h3>
+    </div>
+
+    <!-- PANEL BODY -->
+    <div class="panel-body">
+   
+      <p><b><a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">Markdown syntax</a></b> allowed. Raw HTML tags function (sort of) in the preview, but are ignored on save and appear as plain text on {{ topic }}'s entries page.</p>
+      
+      {{ form.media }}
+      
+      <form action="{% url 'learning_logs:edit_entry' entry.id %}" method='post' class="form-group">
+        {% csrf_token %}
+        
+        {% buttons %}
+          <button name="submit" class="btn btn-primary">save changes</button>
+          <a href="{% url 'learning_logs:topic' topic.id %}" class="btn btn-danger">cancel</a>
+        {% endbuttons %}
+
+        <style>
+          .wmd-panel {
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 10px;
+            width: 0;
+            min-width: 100%;
+          }
+        </style>
+        
+        {{ form }}
+      
+        {% buttons %}
+          <button name="submit" class="btn btn-primary">save changes</button>
+          <a href="{% url 'learning_logs:topic' topic.id %}" class="btn btn-danger">cancel</a>
+        {% endbuttons %}
     
-    {{ form }}
-  
-    {% buttons %}
-      <button name="submit" class="btn btn-primary">save changes</button>
-      <a href="{% url 'learning_logs:topic' topic.id %}" class="btn btn-danger">cancel</a>
-    {% endbuttons %}
-    
-  </form>
+      </form>
+    </div>
+
+  </div>
 
 {% endblock content %}

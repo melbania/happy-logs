@@ -7,16 +7,28 @@
 
 {% block content %}
 
-  <h4>More learnings?! Yay!!</h4>
-  
   <form action="{% url 'learning_logs:new_topic' %}" method='post' class="  form-group">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-  
+
+    <div class="panel panel-default">
+    
+      <!-- PANEL HEADING -->
+      <div class="panel-heading">
+        <h3 class="panel-title">More learning?! Yay!!</h3>
+      </div>
+
+      <!-- PANEL BODY -->
+      <div class="panel-body">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+      </div>
+
+    </div>
+
     {% buttons %}
       <button name="submit" class="btn btn-primary">add topic</button>
-      <a href="{% url 'learning_logs:topics' %}" class="btn btn-danger">cancel</a  >
+      <a href="{% url 'learning_logs:topics' %}" class="btn btn-danger">cancel</a>
     {% endbuttons %}
+
   </form>
 
 {% endblock content %}

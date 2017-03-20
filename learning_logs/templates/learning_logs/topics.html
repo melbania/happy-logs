@@ -10,18 +10,22 @@
 {% block content %}
 
   <div class="panel panel-default">
+
+    <!-- PANEL HEADING -->
     <div class="panel-heading">
       <h3 class="panel-title">"The cure for boredom is curiosity. There is no cure for curiosity." <i><a href="http://quoteinvestigator.com/2015/11/01/cure/"> -- Ellen Parr (Reader's Digest, 1980)</a></i></h3>
     </div>
 
+    <!-- PANEL BODY -->
     <div class="panel-body">
       <!-- show topics -->
       {% for topic in topics %}
         <h4><p><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></p></h4>
       {% empty %}
-        <p>No topics have been added yet. So much to learn! Where ya gonna start, you Avaricious Acquisitioner of Learnings, you?!</p>
+        <p>No topics have been added yet.</p>
       {% endfor %}
     </div>
+
   </div>
 
   <!-- "add a topic" button -->

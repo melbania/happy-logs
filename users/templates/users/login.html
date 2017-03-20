@@ -7,21 +7,37 @@
 
 {% block content %}
 
-  {% if form.errors %}
-    <p>Your username and password did not match. Please try again.</p>
-  {% endif %}
-  
-  <h4>Back for more?! You Awesome Winning Learner, you!</h4>
   <form method="post" action="{% url 'users:login' %}" class="form">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-  
-  
+
+    <div class="panel panel-default">
+
+      <div class="panel-heading">
+
+        {% if form.errors %}
+
+          <h3 class="panel-title">Your username and password did not match. Please try again.</h3>
+
+        {% else %}
+
+          <h3 class="panel-title">Back for more?! You Awesome Winning Learner, you!</h3>
+
+        {% endif %}
+
+      </div>
+
+      <div class="panel-body">
+
+          {% csrf_token %}
+          {% bootstrap_form form %}
+      </div>
+
+    </div>
+
+    <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
     {% buttons %}
       <button name="submit" class="btn btn-primary">log in</button>
     {% endbuttons %}
-  
-    <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
+
   </form>
 
 {% endblock content %}

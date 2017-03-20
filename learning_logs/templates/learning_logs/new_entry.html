@@ -6,39 +6,47 @@
 {% endblock header %}
 
 {% block content %}
+  <div class="panel panel-default">
+    <!-- PANEL HEADING -->
+    <div class="panel-heading">
+      <h3 class="panel-title">Add an Entry</h3>
+    </div>
 
-  <h4>Adding a New Entry?! Omigob, tell Learning Log EVERYTHING!!</h4>
+    <!-- PANEL BODY -->
+    <div class="panel-body">
+      <p><b><a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">Markdown syntax</a></b> allowed. Raw HTML tags function (sort of) in the preview, but are ignored on save and appear as plain text on {{ topic }}'s entries page.</p>
 
-  <p><a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">Markdown syntax</a> allowed. Raw HTML tags function (sort of) in the preview, but are ignored on save and appear as plain text on {{ topic }}'s entries page.</p>
+      {{ form.media }}
 
-  {{ form.media }}
+      <form action="{% url 'learning_logs:new_entry' topic.id %}" method='post' class="form-group">
 
-  <form action="{% url 'learning_logs:new_entry' topic.id %}" method='post' class="form-group">
-  
-    {% csrf_token %}
+        {% csrf_token %}
 
-    {% buttons %}
-      <button name="submit" class="btn btn-primary">save entry</button>
-      <a href="{% url 'learning_logs:topic' topic.id %}" class="btn btn-danger">cancel</a>
-    {% endbuttons %}
+        {% buttons %}
+          <button name="submit" class="btn btn-primary">save entry</button>
+          <a href="{% url 'learning_logs:topic' topic.id %}" class="btn btn-danger">cancel</a>
+        {% endbuttons %}
 
-    <style>
-      .wmd-panel {
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: 10px;
-        width: 0;
-        min-width: 100%;
-      }
-    </style>
-  
-    {{ form }}
-  
-    {% buttons %}
-      <button name="submit" class="btn btn-primary">save entry</button>
-      <a href="{% url 'learning_logs:topic' topic.id %}" class="btn btn-danger">cancel</a>
-    {% endbuttons %}
+        <style>
+          .wmd-panel {
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 10px;
+            width: 0;
+            min-width: 100%;
+          }
+        </style>
+      
+        {{ form }}
+      
+        {% buttons %}
+          <button name="submit" class="btn btn-primary">save entry</button>
+          <a href="{% url 'learning_logs:topic' topic.id %}" class="btn btn-danger">cancel</a>
+        {% endbuttons %}
 
-  </form>
+      </form>
+    </div>
+    
+  </div>
 
 {% endblock content %}

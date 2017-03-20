@@ -10,12 +10,14 @@
 {% endblock header %}
 
 {% block content %}
+  <!-- "ADD AN ENTRY" AND "BACK TO TOPICS" BUTTONS -->
   <p>
     <a href="{% url 'learning_logs:new_entry' topic.id %}" class="btn btn-primary">add an entry</a>  <a href="{% url 'learning_logs:topics' %}" class="btn btn-info">back to topics</a>
   </p>
 
   {% for entry in entries %}
-    <div class="panel panel-default">
+    <div class="panel panel-default"><!-- begin entry panel -->
+      <!-- PANEL HEADING -->
       <div class="panel-heading">
         <h3>
           <span id="{{ entry.id }}">{{ entry.date_added|date:'c' }}</span>
@@ -33,15 +35,24 @@
           </small>
         </h3>
       </div>
-  
+      
+      <!-- PANEL BODY -->
       <div class="panel-body">
         {{ entry.entry|markdown }}
-      </div>     
-    </div><!-- /panel -->
+      </div>
+
+    </div><!-- /entry panel -->
+
+    <!-- "ADD AN ENTRY" AND "BACK TO TOPICS" BUTTONS -->
     <p>
       <a href="{% url 'learning_logs:new_entry' topic.id %}" class="btn btn-primary">add an entry</a>  <a href="{% url 'learning_logs:topics' %}" class="btn btn-info">back to topics</a>
-    </p> 
+    </p>
+
+  <!-- IF THERE ARE NO ENTRIES FOR THE TOPIC -->
   {% empty %}
-      omigob omigob omigob! You haven't told me ANYTHING about {{ topic }}, yet! Quick go add an entry before I die of curiosity.
+    <div class="well well-sm">
+      <h4>There are no entries for this topic yet.</h4>
+    </div>
+
   {% endfor %}  
 {% endblock content %}
