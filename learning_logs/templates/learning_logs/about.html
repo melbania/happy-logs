@@ -7,6 +7,7 @@
 
 {% block content %}
 
+  <!-- "ABOUT" PANEL -->
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">Origins</h3>
@@ -44,8 +45,9 @@
         </p>
       </ul>
     </div>
-  </div>
+  </div><!-- END "ABOUT" PANEL-->
 
+  <!-- "HOW TO USE" PANEL-->
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">How to Use Learning Logs</h3>
@@ -53,28 +55,154 @@
     <div class="panel-body">
       <ol>
         <p>
-          <li><a href="{% url 'users:register' %}"><b>Register</b></a> for your free account. It's free. Just create a unique username and password.</li>
+          <h3><li><a href="{% url 'users:register' %}">Register</a> for your free account.</li></h3>
         </p>
-         <p>
-          <li>Go do some learning about <a href="http://www.macwright.org/2017/01/28/numbers.html"><b>something</b></a> ... ANYTHING!</li>
-        </p>
+
         <p>
-          <li><a href="{% url 'users:login' %}"><b>Log in</b></a> to your Learning Logs account.</li>
+          Click on the "register" link found on the right side of the navigation bar at the top of the page.
         </p>
+
         <p>
-          <li>Add a topic.</li>
+          <img src="{% static '/images/register.jpg' %}" class="img-responsive img-rounded img-thumbnail" alt="Responsive image"/>        
         </p>
+
+        <br>
+
         <p>
-          <li>Add an entry for that topic.</li>
+          Create a unique username and password, then click on the "register" button at the bottom of the form.
         </p>
+
         <p>
-          <li>Edit that entry if necessary.</li>
+          <img src="{% static '/images/register_click.jpg' %}" class="img-responsive img-rounded img-thumbnail" alt="Responsive image"/>        
         </p>
+
+        <br>
+
         <p>
-          <li>Dress that entry up with some <a href="{% url 'learning_logs:md_cheatsheet' %}"><b>Markdown</b></a> if you're feeling fancy.</li>
+          <h3><li>Go do some learning about <a href="http://www.macwright.org/2017/01/28/numbers.html"><b>stuff</b></a> ... maybe <a href="https://www.engadget.com/2017/02/17/when-vending-machines-attack/">things</a>.</li></h3>
+        </p>
+
+        <br>
+
+        <p>
+          <h3><li>Come back to Learning Logs and <a href="{% url 'users:login' %}"><b>Log in</b></a> to your account.</h3> Click on the "log in " link found on the right side of the navigation bar at the top of the page.</li>
+        </p>
+
+        <p>
+          <img src="{% static '/images/login.jpg' %}" class="img-responsive img-rounded img-thumbnail" alt="Responsive image"/>        
+        </p>
+
+        <br>
+
+        <p>
+          <h3><li>Add a topic.</li></h3>
+        </p>
+
+        <p>
+          Click on the "Topics" tab found toward the middle of the navigation bar at the top of the page.
+        </p>
+
+        <p>
+          <img src="{% static '/images/topics_click.jpg' %}" class="img-responsive img-rounded img-thumbnail" alt="Responsive image"/>
+        </p>
+
+        <br>
+
+        <p>
+          Click on the "add a topic" button at the bottom of the topics list panel.
+        </p>
+
+        <p>
+          <img src="{% static '/images/topics_add.jpg' %}" class="img-responsive img-rounded img-thumbnail" alt="Responsive image"/>
+        </p>
+
+        <br>
+
+        <p>
+          Type the new topic's name in the form. Then click the "add topic" button at the bottom of the form to save that topic.
+        </p>
+
+        <p>
+          <img src="{% static '/images/topic_name.jpg' %}" class="img-responsive img-rounded img-thumbnail" alt="Responsive image"/>
+        </p>
+
+        <br>
+
+        <p>
+          <h3><li>Add an entry for that topic.</h3> Click on the topic's name.</li>
+        </p>
+
+        <p>
+          <img src="{% static '/images/topic_name_click.jpg' %}" class="img-responsive img-rounded img-thumbnail" alt="Responsive image"/>
+        </p>
+
+        <br>
+
+        <p>
+          Click the "add an entry" button to go to the text editor.
+        </p>
+
+        <p>
+          <img src="{% static '/images/add_entry.jpg' %}" class="img-responsive img-rounded img-thumbnail" alt="Responsive image"/>
+        </p>
+
+        <br>
+
+        <p>
+          In the text editor pane, type up your entry. Scroll down to see a preview of that entry in the preview pane. Click the "save entry" button when done.
+        </p>
+
+        <p>
+          <img src="{% static '/images/entry_write.jpg' %}" class="img-responsive img-rounded img-thumbnail" alt="Responsive image"/>
+        </p>
+
+        <br>
+
+        <p>
+          <h3><li>Edit an entry if necessary.</h3> Click on the "edit entry" link found in the entry's time and date header.</li>
+        </p>
+
+        <p>
+          <img src="{% static '/images/edit_entry.jpg' %}" class="img-responsive img-rounded img-thumbnail" alt="Responsive image"/>
+        </p>
+
+        <br>
+
+        <p>
+          Dress that entry up with some <a href="{% url 'learning_logs:md_cheatsheet' %}"><b>Markdown</b></a> if you're feeling fancy. Click the "save changes" button when done.
+        </p>
+
+        <p>
+          <img src="{% static '/images/entry_edit_markdown.jpg' %}" class="img-responsive img-rounded img-thumbnail" alt="Responsive image"/>
+        </p>
+
+        <br>
+
+        <p>
+          <h3><li>Rinse and repeat.</li></h3>
         </p>
       </ol>
     </div>
+  </div><!-- END "HOW TO USE" PANEL-->
+
+  <!-- MARKDOWN INFO PANEL -->
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">About Markdown</h3>
+  </div>
+  <div class="panel-body">
+    <p>
+      Markdown is like shorthand for HTML. It can do a lot of what HTML does to text, but with fewer keystrokes. I chose to include it as a feature of Learning Logs because it provides the ability to add meaning and readability to what would otherwise be plain text entries. 
+    </p>
+    <p>
+      Click <b><a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">here</a></b> to learn lots more about Markdown. 
+    </p>
+    <p>
+      Click on the "Markdown Cheatsheet" link in the middle of the navigation bar at the top of the page for help with some common syntax uses. The page opens in a new tab.
+    </p>
+    <p>
+      ENJOY! :D
+    </p>
   </div>
 
 {% endblock content %}
