@@ -2,6 +2,8 @@
 from django.conf.urls import url
 from . import views
 
+app_name = 'learning_logs'
+
 urlpatterns = [
     # Base page
     url(r'^base$', views.base, name='base'),

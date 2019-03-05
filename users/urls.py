@@ -1,10 +1,10 @@
 """Defines url patterns for users."""
 from django.conf.urls import url
-# from django.contrib.auth.views import login
 from django.contrib.auth import views as auth_views
 
-
 from . import views
+
+app_name = 'users'
 
 urlpatterns = [
     # Login page
