@@ -10,7 +10,7 @@ urlpatterns = [
     # Login page
     # url(r'^login/$', login, {'template_name': 'users/login.html'}, 
         # name='login'),
-    url(r'^login$', auth_views.LoginView.as_view(template_name='users/login.html')),
+    url(r'^login$', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
 
     # Logout page
     url(r'^logout/$', views.logout_view, name='logout'),
