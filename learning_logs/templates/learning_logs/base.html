@@ -47,7 +47,7 @@
             {% if user.is_authenticated %}
               <li><a href="{% url 'learning_logs:topics' %}">Topics</a></li>
             {% else %}
-              <li><a href="{% url 'users:register' %}">Topics</a></li>
+              <li><a href="{% url 'users:login' %}">Topics</a></li>
             {% endif %}
             <li><a href="{% url 'learning_logs:md_cheatsheet' %}">Markdown Cheatsheet</a></li>
           </ul>
@@ -58,7 +58,7 @@
             </ul>
           {% else %}
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="{% url 'users:register' %}">register</a></li>
+              <!-- <li><a href="{% url 'users:register' %}">register</a></li> -->
               <li><a href="{% url 'users:login' %}">log in</a></li>
             </ul>
           {% endif %}
