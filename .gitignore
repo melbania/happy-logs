@@ -1,7 +1,11 @@
 ll_env/
+venv/
 __pycache__/
 *.pyc
 *.sqlite3
 .env
+.venv
+.bash_profile
 .DS_Store
+.vscode
 settings_copy.py

@@ -130,7 +130,7 @@ STATICFILES_DIRS = (
     )
 
 # My Settings
-LOGIN_URL = '/users/login.html'
+LOGIN_URL = '/users/login/'
 
 # Settings for django-bootstrap3
 BOOTSTRAP3 = {
