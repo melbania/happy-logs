@@ -24,7 +24,7 @@
       </div>
     </div>
     
-    <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
+    <input type="hidden" name="next" value="{% url 'learning_logs:topics' %}" />
     {% buttons %}
       <button name="submit" class="btn btn-primary">register</button>
       <span style="padding-left:10px;">Already have an account? <a href="{% url 'users:login' %}">login here</a></span>

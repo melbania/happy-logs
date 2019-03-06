@@ -33,7 +33,7 @@
 
     </div>
 
-    <input type="hidden" name="next" value="{% url 'learning_logs:index' %}" />
+    <input type="hidden" name="next" value="{% url 'learning_logs:topics' %}" />
     {% buttons %}
       <button name="submit" class="btn btn-primary">log in</button>
       <span style="padding-left:10px;">Need an account? <a href="{% url 'users:register' %}">register here</a></span>
